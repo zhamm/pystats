@@ -1,0 +1,22 @@
+# PyStats System Monitor Requirements
+# Protective Resources, Inc. 2025
+
+# Core system monitoring library (required for full functionality)
+# PyStats includes advanced detection with fallback methods if this fails
+psutil>=5.8.0
+
+# Optional: Enhanced NVIDIA GPU monitoring
+# Provides detailed GPU metrics beyond nvidia-smi
+# Modern option (recommended):
+nvidia-ml-py3>=7.352.0
+
+# Legacy option (use if nvidia-ml-py3 not available):
+# pynvml>=11.4.1
+
+# Note: You only need one of the above, not both
+# Comment out if not needed or if installation fails
+
+# Note: All other dependencies are from Python standard library:
+# - json, subprocess, threading, time, platform
+# - http.server, urllib.parse, socket, os, re
+# - xml.etree.ElementTree
