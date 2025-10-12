@@ -2,6 +2,7 @@
 
 **PyStats** is a comprehensive web-based system monitoring service that provides real-time CPU, memory, and GPU information through an elegant Bootstrap web interface. It features enhanced hardware detection, multiple fallback methods for system monitoring, and runs as a systemd service for continuous operation.
 
+![Screenshot of Pystats Running](Screenshot1.png)
 ---
 
 ## 🧩 Features
