@@ -1,4 +1,3 @@
-
 #!/bin/bash
 # ============================================================
 # PyStats Installer Script
@@ -113,5 +112,4 @@ echo "Service file: $SERVICE_FILE"
 echo "Logs: $LOG_FILE / $ERR_FILE"
 echo "To view logs: sudo journalctl -u ${SERVICE_NAME} -f"
 echo "--------------------------------------------"
-
 
