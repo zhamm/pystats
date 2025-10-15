@@ -106,10 +106,18 @@ systemctl restart "$SERVICE_NAME".service
 sleep 2
 systemctl status "$SERVICE_NAME".service --no-pager
 
+
 echo "--------------------------------------------"
 echo "✅ Installation complete!"
 echo "Service file: $SERVICE_FILE"
 echo "Logs: $LOG_FILE / $ERR_FILE"
 echo "To view logs: sudo journalctl -u ${SERVICE_NAME} -f"
 echo "--------------------------------------------"
+echo ""
+echo "Point your browser to http://${HOSTNAME}:8088"
+echo ""
+echo "--------------------------------------------"
+
+
+
 
