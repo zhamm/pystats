@@ -10,6 +10,11 @@
 
 set -e
 
+if [ "$(id -u)" -ne 0 ]; then
+   echo "This script must be run as root." >&2
+   exit 1
+fi
+
 # Store the directory where the script is located
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
@@ -114,10 +119,7 @@ echo "Logs: $LOG_FILE / $ERR_FILE"
 echo "To view logs: sudo journalctl -u ${SERVICE_NAME} -f"
 echo "--------------------------------------------"
 echo ""
-echo "Point your browser to http://${HOSTNAME}:8088"
+echo "Point your browser to http://$HOSTNAME:8088"
 echo ""
 echo "--------------------------------------------"
-
-
-
 
