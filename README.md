@@ -14,7 +14,7 @@
   - Advanced psutil detection with multiple fallback methods
   - Comprehensive CPU information with per-core usage
   - Physical and swap memory monitoring with stacked layout
-- **GPU Support**: NVIDIA and Intel GPU monitoring with detailed metrics
+- **GPU Support**: NVIDIA (including Jetson Nano/NX) and Intel GPU monitoring with detailed metrics
 - **Real-time Data**: JSON API endpoint for system information
 - **Robust Monitoring**: Automatic fallback methods when psutil is unavailable
 - **Service Integration**: Designed to run as a **systemd service** with auto-restart
@@ -258,6 +258,16 @@ This ensures monitoring works even with problematic psutil installations.
 ## 📋 System Compatibility
 
 - **Tested Platforms**: Ubuntu 20.04 LTS, Ubuntu 24.04 LTS, Debian, CentOS, Red Hat
+
+### Jetson Notes
+
+PyStats now supports NVIDIA Jetson integrated GPU detection (including Jetson Nano and Jetson Xavier NX). On Jetson systems, where `nvidia-smi` may be unavailable, PyStats automatically falls back to:
+
+- `tegrastats` (`GR3D_FREQ`) for GPU utilization when available
+- Jetson sysfs GPU load paths (such as `/sys/devices/gpu.0/load`, `/sys/devices/57000000.gpu/load`, `/sys/devices/17000000.gv11b/load`, `/sys/devices/17000000.ga10b/load`)
+- Thermal zone sensors for GPU temperature when exposed
+
+Jetson GPUs are reported as NVIDIA integrated GPUs using shared system memory.
 - **Python Version**: Requires Python ≥ 3.8
 - **GPU Support**: 
   - NVIDIA GPUs via `pynvml` library or `nvidia-smi` command
