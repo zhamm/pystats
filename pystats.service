@@ -1,0 +1,29 @@
+[Unit]
+Description=PyStats Service
+After=network.target docker.service
+Wants=network-online.target
+
+[Service]
+# Path to Python and script
+ExecStart=/usr/bin/python3 /opt/pystats/pystats.py
+
+# Directory to run from
+WorkingDirectory=/opt/pystats
+
+# Environment variables (optional)
+Environment="MONITOR_TOKEN=Supersecret90210"
+
+# Restart policy
+Restart=always
+RestartSec=5
+
+# Logging
+StandardOutput=append:/var/log/pystats.log
+StandardError=append:/var/log/pystats.err
+
+# User/group to run under (choose a non-root user if possible)
+User=pystats
+Group=pystats
+
+[Install]
+WantedBy=multi-user.target
